@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gople — Tailnet Required</title>
+  <link rel="icon" href="./fav.svg" type="Logo">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --danger: #ef4444;
+      --text: #e2e8f0;
+      --muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(239,68,68,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239,68,68,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--danger);
+      border-radius: 16px;
+      padding: 48px 56px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: pulseRed 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseRed {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.2), 0 0 40px rgba(239,68,68,0.05); }
+      50%       { box-shadow: 0 0 0 8px rgba(239,68,68,0), 0 0 60px rgba(239,68,68,0.1); }
+    }
+
+    .icon {
+      font-size: 3rem;
+      display: inline-block;
+      margin-bottom: 20px;
+      animation: shake 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes shake {
+      from { transform: rotate(-6deg); }
+      to   { transform: rotate(6deg); }
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #EA4335, #FBBC04, #34A853, #4285F4, #EA4335);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fca5a5;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    .step {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .step-num {
+      color: var(--danger);
+      font-weight: 700;
+      min-width: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="icon">🔒</div>
+  <div class="logo">gople</div>
+  <h1>Tailnet access required</h1>
+  <p>This service is only accessible through the Gople Tailscale network.</p>
+
+  <hr class="divider">
+
+  <div class="step"><span class="step-num">1</span><span>If Tailscale is running — try restarting it and reload this page</span></div>
+  <div class="step"><span class="step-num">2</span><span>If Tailscale is not running — start it and reconnect to the Tailnet</span></div>
+  <div class="step"><span class="step-num">3</span><span>If Tailscale is not installed — install it and contact the webmaster to get added to the Tailnet</span></div>
+  <div class="step"><span class="step-num">4</span><span>If none of this helped — contact the webmaster for assistance</span></div>
+</div>
+
+</body>
+</html>
